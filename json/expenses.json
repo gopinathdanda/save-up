@@ -1,0 +1,40 @@
+[
+		{
+			"name": "Deca",
+			"price": 4.99,
+			"description": "Lipsum dolor it cenum.",
+			"canPurchase": true,
+			"soldOut": false,
+			"reviews": [
+				{
+					"stars": 5,
+					"body": "Awesome shit you got here!",
+					"author": "skd109"
+				},
+				{
+					"stars": 1,
+					"body": "What the fuck dude!?",
+					"author": "aos30"
+				}
+			]
+		},
+		{
+			"name": "Octa",
+			"price": 3.99,
+			"description": "Nice looking ruby.",
+			"canPurchase": true,
+			"soldOut": false,
+			"reviews": [
+				{
+					"stars": 5,
+					"body": "Awesome shit you got here!",
+					"author": "skd109"
+				},
+				{
+					"stars": 1,
+					"body": "What the fuck dude!?",
+					"author": "aos30"
+				}
+			]
+		}
+	]

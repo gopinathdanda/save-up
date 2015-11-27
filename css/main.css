@@ -1,3 +1,7 @@
+.jumbotron{
+	margin:0;background-color:#E05252;color:white
+}
+
 input[type="email"]{
 	border:1px solid #999;
 }

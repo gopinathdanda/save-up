@@ -1,0 +1,12 @@
+[
+		{
+			"name": "Salary",
+			"amount": 2143.99,
+			"date": "Nov 01, 2015"
+		},
+		{
+			"name": "Loan repayment",
+			"amount": 5,
+			"date": "Nov 20, 2015"
+		}
+	]

@@ -7,8 +7,12 @@
 .nav-pills{
 	margin:10px 0;
 }
-.on-date{
+.exp-date{
 	font-size:0.9em;
+	color:#ccc;
+}
+.exp-type{
+	color:#999;
 }
 
 input[type="email"]{
@@ -19,4 +23,8 @@ input[type="email"]{
 }
 .ng-valid.ng-dirty{
 	border-color:green;
+}
+
+footer{
+	background-color:#eee;margin-top:30px;padding:25px 0 0 0;color:#999;
 }

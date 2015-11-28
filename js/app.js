@@ -16,9 +16,14 @@
 	app.controller('ListExpenses', ['$http', function($http){
 		var list = this;
 		list.expenses = [];
+		list.incomes = [];
 		
 		$http.get('json/expenses.json').success(function(data){
 			list.expenses = data;
+		});
+		
+		$http.get('json/incomes.json').success(function(data){
+			list.incomes = data;
 		});
 		
 	}]);

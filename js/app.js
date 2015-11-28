@@ -1,23 +1,27 @@
 (function() {
 	var app = angular.module('budget', []);
-	app.controller('ExpenseController', ['$http', function($http){
-		var budget = this;
-		budget.products = [];
-		
-		$http.get('json/expenses.json').success(function(data){
-			budget.products = data;
-		});
-	}]);
-	app.controller('PanelController', function(){
+	
+	app.controller('PageController', function(){
 		this.tab = 1;
 		
 		this.selectTab = function(setTab){
 			this.tab = setTab;
-		};
+		}
+		
 		this.isSelected = function(checkTab){
 			return this.tab === checkTab;
 		}
 	});
+	
+	app.controller('ListExpenses', ['$http', function($http){
+		var list = this;
+		list.expenses = [];
+		
+		$http.get('json/expenses.json').success(function(data){
+			list.expenses = data;
+		});
+		
+	}]);
 	
 	app.directive('reviewForm', function(){
 		return {

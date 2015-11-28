@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
 		<link rel="stylesheet" type="text/css" href="css/main.css"></link>
 	</head>
-	<body ng-controller="ExpenseController as items">
+	<body>
 		
 		<div class="jumbotron container-fluid">
 			<div class="container">
@@ -17,13 +17,13 @@
 			<div class="container">
 				<h3>Progress towards your goal</h3>
 				<div class="progress">
-				  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-				    <span class="sr-only">60% Complete</span>
+				  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+				    <span class="sr-only">1% Complete</span>
 				  </div>
 				</div>
 				<div>
-					<p class="pull-left">$2540.00 saved</p>
-					<p class="pull-right">Goal of $5000.00</p>
+					<p class="pull-left">$540.00 saved</p>
+					<p class="pull-right">Goal of $90,000.00</p>
 				</div>
 			</div>
 		</div>
@@ -46,38 +46,41 @@
 				<div class="col-md-6">
 					<h3>Expenses</h3>
 					<p>Add, view and modify expenses.</p>
-					<section>
+					<section ng-controller="PageController as page">
 						<ul class="nav nav-pills">
-							<li class="active"><a href>All expenses</a></li>
-							<li><a href>Add expense</a></li>
+							<li ng-class="{active:page.isSelected(1)}"><a href ng-click="page.selectTab(1)">All expenses</a></li>
+							<li ng-class="{active:page.isSelected(2)}"><a href ng-click="page.selectTab(2)">Add expense</a></li>
 						</ul>
-						<ul class="list-group panel">
-						  <li class="list-group-item">
-							  <h4>$17.23</h4>
-							  <div class="pull-left">
-								  <p>Chipotle (Food)</p>
-								  <p class="on-date">Nov 16, 2015</p>
-						  	  </div>
-							  <div class="pull-right" style="text-align:right">
-							  	<p><a href>Modify</a></p>
-								<p><a href>Delete</a></p>
-							  </div>
-							  <div class="clearfix"></div>
-						  </li>
-						  <li class="list-group-item">
-							  <h4>$17.23</h4>
-							  <div class="pull-left">
-								  <p>Chipotle (Food)</p>
-								  <p class="on-date">Nov 16, 2015</p>
-						  	  </div>
-							  <div class="pull-right" style="text-align:right">
-							  	<p><a href>Modify</a></p>
-								<p><a href>Delete</a></p>
-							  </div>
-							  <div class="clearfix"></div>
-						  </li>
+						<ul class="list-group panel" ng-show="page.isSelected(1)" ng-controller="ListExpenses as list">
+							 <!--<ul class="pagination">
+							    <li>
+							      <a href="#" aria-label="Previous">
+							        <span aria-hidden="true">&laquo;</span>
+							      </a>
+							    </li>
+							    <li><a href>1</a></li>
+								<li><a href>2</a></li>
+								<li><a href>3</a></li>
+							    <li>
+							      <a href="#" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+							  </ul>-->
+							  <li class="list-group-item" ng-repeat="expense in list.expenses">
+								  <h4>{{expense.amount|currency}}</h4>
+								  <div class="pull-left">
+									  <p>{{expense.name}} ({{expense.type}})</p>
+									  <p class="on-date">{{expense.date|date}}</p>
+							  	  </div>
+								  <div class="pull-right" style="text-align:right">
+								  	<p><a href>Modify</a></p>
+									<p><a href>Delete</a></p>
+								  </div>
+								  <div class="clearfix"></div>
+							  </li>
 						</ul>
-						<div class="panel">
+						<div class="panel" ng-show="page.isSelected(2)">
 							<form name="addExpense">
 								<div class="form-group">
 									<label class="sr-only" for="expenseName">Expense Name</label>
@@ -112,7 +115,7 @@
 				</div>
 			</div>
 		</div>
-		
+		<!--
 		<div class="container-fluid">
 			<div class="container">
 				<div ng-repeat="item in items.products">
@@ -145,7 +148,7 @@
 						</div>
 					</section>
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>

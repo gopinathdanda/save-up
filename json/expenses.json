@@ -1,40 +1,20 @@
 [
 		{
-			"name": "Deca",
-			"price": 4.99,
-			"description": "Lipsum dolor it cenum.",
-			"canPurchase": true,
-			"soldOut": false,
-			"reviews": [
-				{
-					"stars": 5,
-					"body": "Awesome shit you got here!",
-					"author": "skd109"
-				},
-				{
-					"stars": 1,
-					"body": "What the fuck dude!?",
-					"author": "aos30"
-				}
-			]
+			"name": "Chipotle",
+			"amount": 15.99,
+			"type": "Entertainment",
+			"date": "Nov 26, 2015"
 		},
 		{
-			"name": "Octa",
-			"price": 3.99,
-			"description": "Nice looking ruby.",
-			"canPurchase": true,
-			"soldOut": false,
-			"reviews": [
-				{
-					"stars": 5,
-					"body": "Awesome shit you got here!",
-					"author": "skd109"
-				},
-				{
-					"stars": 1,
-					"body": "What the fuck dude!?",
-					"author": "aos30"
-				}
-			]
+			"name": "Chicken over rice",
+			"amount": 5,
+			"type": "Food",
+			"date": "Nov 20, 2015"
+		},
+		{
+			"name": "Columbia boots",
+			"amount": 72.13,
+			"type": "Clothing",
+			"date": "Nov 27, 2015"
 		}
 	]

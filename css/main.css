@@ -1,6 +1,15 @@
 .jumbotron{
 	margin:0;background-color:#E05252;color:white
 }
+.panel{
+	box-shadow:0 0 0;
+}
+.nav-pills{
+	margin:10px 0;
+}
+.on-date{
+	font-size:0.9em;
+}
 
 input[type="email"]{
 	border:1px solid #999;

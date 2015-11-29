@@ -15,8 +15,11 @@
 	
 	app.controller('ListExpenses', ['$http', function($http){
 		var list = this;
+		var incomeTotal = 0;
 		list.expenses = [];
 		list.incomes = [];
+		list.incomeTotal = incomeTotal;
+		
 		
 		$http.get('json/expenses.json').success(function(data){
 			list.expenses = data;
@@ -24,8 +27,36 @@
 		
 		$http.get('json/incomes.json').success(function(data){
 			list.incomes = data;
+			for(var i=0;i<data.length;i++){
+				incomeTotal+=data[i].amount;
+			}
+			list.incomeTotal = incomeTotal;
 		});
 		
+	}]);
+	
+	app.directive('expensePercentage',['$http', function($http){
+		return {
+			restrict: 'E',
+			templateUrl: "js/directives/expense-percentage.html",
+			controller: function(){
+				var list = this;
+				var expenseTotal = 0;
+				list.expenseTotal = expenseTotal;
+				list.expensePercentage = expenseTotal/1000*100;
+				list.some = 10;
+				
+				$http.get('json/expenses.json').success(function(data){
+					for(var i=0;i<data.length;i++){
+						expenseTotal+=data[i].amount;
+					}
+					list.expenseTotal = expenseTotal;
+					list.expensePercentage = expenseTotal/1000*100;
+					console.log(list.expenseTotal);
+				});
+			},
+			controllerAs: "expenseCtrl"
+		};
 	}]);
 	
 	app.directive('reviewForm', function(){

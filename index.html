@@ -53,16 +53,7 @@
 							<li ng-class="{active:page.isSelected(2)}"><a href ng-click="page.selectTab(2)">Add expense</a></li>
 						</ul>
 						<ul class="list-group panel" ng-show="page.isSelected(1)">
-							<div class="progress">
-							  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%">
-							    <span class="sr-only">4% Complete</span>
-							  </div>
-							</div>
-							<div>
-								<p class="pull-left">$37.09 used</p>
-								<p class="pull-right">Limit of $1000.00</p>
-								<p class="clearfix"></p>
-							</div>
+							<expense-percentage></expense-percentage>
 							 <!--<ul class="pagination">
 							    <li>
 							      <a href="#" aria-label="Previous">
@@ -93,16 +84,7 @@
 							  </li>
 						</ul>
 						<div class="panel" ng-show="page.isSelected(2)">
-							<div class="progress">
-							  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%">
-							    <span class="sr-only">4% Complete</span>
-							  </div>
-							</div>
-							<div>
-								<p class="pull-left">$37.09 used</p>
-								<p class="pull-right">Limit of $1000.00</p>
-								<p class="clearfix"></p>
-							</div>
+							<expense-percentage></expense-percentage>
 							<form name="addExpense">
 								<div class="form-group">
 									<label class="sr-only" for="expenseName">Expense Name</label>

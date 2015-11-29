@@ -1,0 +1,10 @@
+<div class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{expenseCtrl.expensePercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{expenseCtrl.expensePercentage}}%">
+    <span class="sr-only">{{expenseCtrl.expensePercentage}}% Complete</span>
+  </div>
+</div>
+<div>
+	<p class="pull-left">{{expenseCtrl.expenseTotal|currency}} used</p>
+	<p class="pull-right">Limit of $1000.00</p>
+	<p class="clearfix"></p>
+</div>

@@ -85,30 +85,7 @@
 						</ul>
 						<div class="panel" ng-show="page.isSelected(2)">
 							<expense-percentage></expense-percentage>
-							<form name="addExpense">
-								<div class="form-group">
-									<label class="sr-only" for="expenseName">Expense Name</label>
-									<input type="text" class="form-control" id="expenseName" placeholder="Name">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="expenseAmount">Expense Amount</label>
-									<div class="input-group">
-										<div class="input-group-addon">$</div>
-										<input type="number" class="form-control" id="expenseAmount" placeholder="Amount" />
-									</div>
-								</div>
-								<select class="form-control form-group">
-									<option>Food</option>
-									<option>Groceries</option>
-									<option>Clothing</option>
-									<option>Entertainment</option>
-								</select>
-								<div class="form-group">
-									<label class="sr-only" for="expenseDate">Date</label>
-									<input type="text" class="form-control" id="expenseDate" placeholder="Date" />
-								</div>
-								<button type="submit" class="btn btn-primary">Add expense</button>
-							</form>
+							<add-item form-type="expense"></add-item>
 						</div>
 					</section>
 					
@@ -152,24 +129,7 @@
 							  </li>
 						</ul>
 						<div class="panel" ng-show="page.isSelected(2)">
-							<form name="addIncome">
-								<div class="form-group">
-									<label class="sr-only" for="incomeName">Income Name</label>
-									<input type="text" class="form-control" id="incomeName" placeholder="Name">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="incomeAmount">Income Amount</label>
-									<div class="input-group">
-										<div class="input-group-addon">$</div>
-										<input type="number" class="form-control" id="incomeAmount" placeholder="Amount" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="incomeDate">Date</label>
-									<input type="text" class="form-control" id="incomeDate" placeholder="Date" />
-								</div>
-								<button type="submit" class="btn btn-primary">Add income</button>
-							</form>
+							<add-item form-type="income"></add-item>
 						</div>
 					</section>
 				</div>

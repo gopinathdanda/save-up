@@ -59,6 +59,29 @@
 		};
 	}]);
 	
+	app.directive('addItem', ['$http', function($http){
+		return {
+			restrict: 'E',
+			templateUrl: "js/add-item-form.html",
+			controller: function($attrs){
+				if($attrs.formType=="expense"){
+					this.showType = true;
+					this.labelType = "Expense"; 
+				}else if($attrs.formType=="income"){
+					this.showType = false;
+					this.labelType = "Income";
+				}
+				
+				this.addItem = function(){
+					console.log(this.item);
+				}
+				
+				
+			},
+			controllerAs: "addItemCtrl"
+		}
+	}]);
+	
 	app.directive('reviewForm', function(){
 		return {
 			restrict: 'E',

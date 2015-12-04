@@ -1,6 +1,7 @@
 (function() {
 	var app = angular.module('budget', []);
 	
+	// Control tabbing through sections
 	app.controller('PageController', function(){
 		this.tab = 1;
 		
@@ -13,6 +14,7 @@
 		}
 	});
 	
+	// List all the incomes and expenses
 	app.controller('ListExpenses', ['$http', function($http){
 		var list = this;
 		var incomeTotal = 0;
@@ -35,6 +37,7 @@
 		
 	}]);
 	
+	// Show expense percentage - need to make it general
 	app.directive('expensePercentage',['$http', function($http){
 		return {
 			restrict: 'E',
@@ -52,13 +55,14 @@
 					}
 					list.expenseTotal = expenseTotal;
 					list.expensePercentage = expenseTotal/1000*100;
-					console.log(list.expenseTotal);
+					//console.log(list.expenseTotal);
 				});
 			},
 			controllerAs: "expenseCtrl"
 		};
 	}]);
 	
+	// General form directive
 	app.directive('addItem', ['$http', function($http){
 		return {
 			restrict: 'E',
@@ -82,6 +86,8 @@
 		}
 	}]);
 	
+	// How to make a custom directive - tutorial
+	/*
 	app.directive('reviewForm', function(){
 		return {
 			restrict: 'E',
@@ -97,5 +103,5 @@
 			},
 			controllerAs: "reviewCtrl"
 		};
-	});
+	});*/
 })();

@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('budget', []);
+	var app = angular.module('budget', [], function(){});
 	
 	// Control tabbing through sections
 	app.controller('PageController', function(){
@@ -66,18 +66,24 @@
 	app.directive('addItem', ['$http', function($http){
 		return {
 			restrict: 'E',
-			templateUrl: "js/add-item-form.html",
+			templateUrl: "js/directives/add-item-form.html",
 			controller: function($attrs){
-				if($attrs.formType=="expense"){
+				this.labelType = $attrs.formType;
+				if($attrs.formType=="expenses"){
 					this.showType = true;
-					this.labelType = "Expense"; 
-				}else if($attrs.formType=="income"){
+				}else if($attrs.formType=="incomes"){
 					this.showType = false;
-					this.labelType = "Income";
 				}
 				
 				this.addItem = function(){
-					console.log(this.item);
+					this.item.label = this.labelType;
+					this.item.submit = "set";
+					data = $.param(this.item);
+					console.log(data);
+					$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+					$http.post('json/add.php',data).then(function successCallback(response){
+						console.log(response);
+					});
 				}
 				
 				

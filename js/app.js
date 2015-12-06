@@ -68,25 +68,28 @@
 			restrict: 'E',
 			templateUrl: "js/directives/add-item-form.html",
 			controller: function($attrs){
-				this.labelType = $attrs.formType;
+				var ctrl = this;
+				ctrl.labelType = $attrs.formType;
+				ctrl.labelTypeSingular = ctrl.labelType.slice(0,-1);
 				if($attrs.formType=="expenses"){
-					this.showType = true;
+					ctrl.showType = true;
 				}else if($attrs.formType=="incomes"){
-					this.showType = false;
+					ctrl.showType = false;
 				}
+				ctrl.success = false;
 				
-				this.addItem = function(){
-					this.item.label = this.labelType;
-					this.item.submit = "set";
-					data = $.param(this.item);
+				ctrl.addItem = function(){
+					ctrl.item.label = ctrl.labelType;
+					ctrl.item.submit = "set";
+					data = $.param(ctrl.item);
 					console.log(data);
 					$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 					$http.post('json/add.php',data).then(function successCallback(response){
-						console.log(response);
+						if(!((response.data).localeCompare("success"))){
+							ctrl.success = true;
+						}
 					});
 				}
-				
-				
 			},
 			controllerAs: "addItemCtrl"
 		}

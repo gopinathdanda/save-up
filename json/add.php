@@ -8,9 +8,14 @@ if(isset($_POST['submit'])){
 	$_POST['amount'] = intval($_POST['amount']);
 	$data[] = $_POST;
 	//print_r($data);
-	file_put_contents($label,json_encode($data));
+	if(file_put_contents($label,json_encode($data))){
+		echo "success";
+	}else{
+		echo "no";
+	}
 	unset($data);
 }else{
 	//echo "else in";
+	echo "no";
 }
 ?>

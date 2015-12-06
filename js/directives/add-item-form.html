@@ -17,5 +17,9 @@
 								<div class="form-group">
 									<input ng-model="addItemCtrl.item.date" type="text" class="form-control" placeholder="Date">
 								</div>
-								<button type="submit" class="btn btn-primary">Add expense</button>
+								<button type="submit" class="btn btn-primary">Add {{addItemCtrl.labelTypeSingular}}</button>
 							</form>
+							<div ng-show="addItemCtrl.success" class="alert alert-success alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								Added {{addItemCtrl.labelTypeSingular}} successfully
+							</div>

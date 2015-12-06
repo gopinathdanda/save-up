@@ -51,14 +51,18 @@
 				list.expensePercentage = expenseTotal/1000*100;
 				list.some = 10;
 				
-				$http.get('json/expenses.json').success(function(data){
-					for(var i=0;i<data.length;i++){
-						expenseTotal+=data[i].amount;
-					}
-					list.expenseTotal = expenseTotal;
-					list.expensePercentage = expenseTotal/1000*100;
-					//console.log(list.expenseTotal);
-				});
+				list.updatePercentage = function(){
+					expenseTotal = 0;
+					$http.get('json/expenses.json').success(function(data){
+						for(var i=0;i<data.length;i++){
+							expenseTotal+=data[i].amount;
+						}
+						list.expenseTotal = expenseTotal;
+						list.expensePercentage = expenseTotal/1000*100;
+						//console.log(list.expenseTotal);
+					});	
+				}
+				
 			},
 			controllerAs: "expenseCtrl"
 		};
@@ -80,7 +84,7 @@
 				}
 				ctrl.success = false;
 				
-				ctrl.addItem = function(list){
+				ctrl.addItem = function(list,exCtrl){
 					ctrl.item.label = ctrl.labelType;
 					ctrl.item.submit = "set";
 					data = $.param(ctrl.item);
@@ -89,8 +93,12 @@
 					$http.post('json/add.php',data).then(function successCallback(response){
 						if(!((response.data).localeCompare("success"))){
 							ctrl.success = true;
-							list.getExpenses();
-							list.getIncomes();
+							if(ctrl.showType){
+								list.getExpenses();
+							}else{
+								list.getIncomes();
+							}
+							exCtrl.updatePercentage();
 						}
 					});
 					

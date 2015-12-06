@@ -2,7 +2,7 @@
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								Added {{addItemCtrl.labelTypeSingular}} successfully
 							</div>
-							<form name="addItem" ng-submit="addItem.$valid && addItemCtrl.addItem(list)" novalidate>
+							<form name="addItem" ng-submit="addItem.$valid && addItemCtrl.addItem(list,expenseCtrl)" novalidate>
 								<div class="form-group">
 									<input ng-model="addItemCtrl.item.name" type="text" class="form-control" placeholder="Name" required>
 								</div>

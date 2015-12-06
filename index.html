@@ -42,7 +42,7 @@
 			</form>
 		</div>
 		
-		<div class="container" ng-controller="ListExpenses as list">
+		<div class="container" ng-controller="ListExpenses as list" ng-init="list.getExpenses();list.getIncomes()">
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Expenses</h3>
@@ -69,7 +69,7 @@
 							      </a>
 							    </li>
 							  </ul>-->
-							  <li class="list-group-item" ng-repeat="expense in list.expenses">
+							  <li class="list-group-item" ng-repeat="expense in list.expenses track by $index">
 								  <h4>{{expense.amount|currency}}</h4>
 								  <div class="pull-left">
 									  <p>{{expense.name}}</p>

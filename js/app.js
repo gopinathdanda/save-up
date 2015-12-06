@@ -22,19 +22,21 @@
 		list.incomes = [];
 		list.incomeTotal = incomeTotal;
 		
+		list.getExpenses = function(){
+			$http.get('json/expenses.json').success(function(data){
+				list.expenses = data;
+			});	
+		}
 		
-		$http.get('json/expenses.json').success(function(data){
-			list.expenses = data;
-		});
-		
-		$http.get('json/incomes.json').success(function(data){
-			list.incomes = data;
-			for(var i=0;i<data.length;i++){
-				incomeTotal+=data[i].amount;
-			}
-			list.incomeTotal = incomeTotal;
-		});
-		
+		list.getIncomes = function(){
+			$http.get('json/incomes.json').success(function(data){
+				list.incomes = data;
+				for(var i=0;i<data.length;i++){
+					incomeTotal+=data[i].amount;
+				}
+				list.incomeTotal = incomeTotal;
+			});	
+		}
 	}]);
 	
 	// Show expense percentage - need to make it general
@@ -78,7 +80,7 @@
 				}
 				ctrl.success = false;
 				
-				ctrl.addItem = function(){
+				ctrl.addItem = function(list){
 					ctrl.item.label = ctrl.labelType;
 					ctrl.item.submit = "set";
 					data = $.param(ctrl.item);
@@ -87,9 +89,12 @@
 					$http.post('json/add.php',data).then(function successCallback(response){
 						if(!((response.data).localeCompare("success"))){
 							ctrl.success = true;
+							list.getExpenses();
+							list.getIncomes();
 						}
 					});
-				}
+					
+				};
 			},
 			controllerAs: "addItemCtrl"
 		}

@@ -95,10 +95,10 @@
 							ctrl.success = true;
 							if(ctrl.showType){
 								list.getExpenses();
+								exCtrl.updatePercentage();
 							}else{
 								list.getIncomes();
 							}
-							exCtrl.updatePercentage();
 						}
 					});
 					

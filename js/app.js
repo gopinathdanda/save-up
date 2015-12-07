@@ -37,6 +37,10 @@
 				list.incomeTotal = incomeTotal;
 			});	
 		}
+		
+		list.removeElement = function(index){
+			console.log(index);
+		}
 	}]);
 	
 	// Show expense percentage - need to make it general

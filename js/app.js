@@ -44,7 +44,7 @@
 			item.label = label;
 			item.index = index;
 			var data = $.param(item);
-			console.log(data);
+			//console.log(data);
 			$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 			$http.post('json/del.php',data).then(function successCallback(response){
 				if(!((response.data).localeCompare("success"))){

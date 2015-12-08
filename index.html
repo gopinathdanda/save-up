@@ -115,7 +115,7 @@
 							      </a>
 							    </li>
 							  </ul>-->
-							  <li class="list-group-item" ng-repeat="income in list.incomes">
+							  <li class="list-group-item" ng-repeat="income in list.incomes track by $index">
 								  <h4>{{income.amount|currency}}</h4>
 								  <div class="pull-left">
 									  <p>{{income.name}}</p>

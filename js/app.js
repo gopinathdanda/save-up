@@ -38,8 +38,27 @@
 			});	
 		}
 		
-		list.removeElement = function(index){
-			console.log(index);
+		list.removeElement = function(index,item,label,exCtrl){
+			//console.log(index);
+			item.delete = true;
+			item.label = label;
+			item.index = index;
+			var data = $.param(item);
+			console.log(data);
+			$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+			$http.post('json/del.php',data).then(function successCallback(response){
+				if(!((response.data).localeCompare("success"))){
+					//ctrl.success = true;
+					if(!((item.label).localeCompare("expenses"))){
+						list.getExpenses();
+						exCtrl.updatePercentage();
+						console.log("exp");
+					}else{
+						list.getIncomes();
+						console.log("inc");
+					}
+				}
+			});
 		}
 	}]);
 	
@@ -100,8 +119,10 @@
 							if(ctrl.showType){
 								list.getExpenses();
 								exCtrl.updatePercentage();
+								console.log("exp");
 							}else{
 								list.getIncomes();
+								console.log("inc");
 							}
 						}
 					});

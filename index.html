@@ -78,7 +78,7 @@
 							  	  </div>
 								  <div class="pull-right" style="text-align:right">
 								  	<p><a href>Modify</a></p>
-									<p><a href ng-click="list.removeElement($index)">Delete</a></p>
+									<p><a href ng-click="list.removeElement($index,expense,'expenses',expenseCtrl)">Delete</a></p>
 								  </div>
 								  <div class="clearfix"></div>
 							  </li>
@@ -123,7 +123,7 @@
 							  	  </div>
 								  <div class="pull-right" style="text-align:right">
 								  	<p><a href>Modify</a></p>
-									<p><a href>Delete</a></p>
+									<p><a href ng-click="list.removeElement($index,income,'incomes',expenseCtrl)">Delete</a></p>
 								  </div>
 								  <div class="clearfix"></div>
 							  </li>
